@@ -29,7 +29,7 @@
 
 ## Selected Projects
 
-### MedCode — terminal AI coding agent
+### [MedCode](https://github.com/Smilewithoutfalling/MedCode) — terminal AI coding agent
 
 *TypeScript · Node.js · Tool Calling · MCP · Prompt Engineering · Context Engineering · JSONL*
 

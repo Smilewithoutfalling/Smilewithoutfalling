@@ -1,14 +1,15 @@
-<h1 align="center">AI Agent Engineering · Retrieval Systems · Multimodal ML</h1>
+<h1 align="center">AI Application Engineering · LLM Agents · Retrieval</h1>
 
-<p align="center"><strong>Agent loops, tool calling, and retrieval pipelines — with the evaluation gates that decide whether they actually work</strong></p>
+<p align="center"><strong>Agent loops, tool calling, and retrieval pipelines — built to be measured, not just demoed</strong></p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=21&pause=1000&color=58A6FF&center=true&vCenter=true&random=false&width=760&lines=AI+Coding+Agents+%2F+Agent+Loop+%2F+Tool+Calling;MCP+%2F+Skills+%2F+Context+Engineering;RAG+%2F+Hybrid+Retrieval+%2F+Cross-Encoder+Rerank;WSI+%2B+Transcriptomics+%2F+TCGA+Cohorts" alt="AI coding agents, agent loop and tool calling, MCP and skills, RAG hybrid retrieval, WSI and transcriptomics" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=21&pause=1000&color=58A6FF&center=true&vCenter=true&random=false&width=760&lines=Agent+Loop+%2F+Tool+Calling+%2F+MCP;LangGraph+%2F+StateGraph+%2F+ReAct;RAG+%2F+Hybrid+Retrieval+%2F+Rerank;Evaluation+Harness+%2F+Reproducible+Scores" alt="Agent loop, tool calling, MCP, LangGraph and ReAct, RAG hybrid retrieval, evaluation harness" />
 </p>
 
 <p align="center">
-  I build AI coding agents end to end — the loop, the prompt assembly, the context budget —
-  and retrieval systems where an answer has to be traceable to its source, not just fluent.
+  I build LLM applications that have to hold up — agents that run their own code and recover
+  from their own errors, retrieval that says where an answer came from, and evaluation that
+  turns "looks right" into a number.
 </p>
 
 <!-- PROFILE_BADGES:START -->
@@ -22,38 +23,11 @@
 
 ## What I Build
 
-- 🤖 **AI Coding Agents** — the model → tool → model loop running locally inside a workspace: task decomposition, result write-back, and a termination decision that does not hang
-- 🧩 **Tool & Skill Wiring** — MCP server discovery with namespaced dispatch, and skills that load on demand instead of filling the context window up front
-- 📚 **Retrieval That Cites** — hybrid BM25 + vector search, query expansion, cross-encoder rerank, every answer carrying the source it came from
-- 🧪 **Evaluation Gates** — deterministic scorers replayed over recorded sessions, retrieval metrics from recall@k to nDCG, and gates that must be green before a change lands
-
-## Selected Projects
-
-### [MedCode](https://github.com/Smilewithoutfalling/MedCode) — terminal AI coding agent
-
-*TypeScript · Node.js · Tool Calling · MCP · Prompt Engineering · Context Engineering · JSONL*
-
-A local agent that carries a development task through code search, reasoning, patch generation
-and result write-up without leaving the workspace.
-
-- **Agent loop** — model reasoning, tool dispatch, result write-back and termination as one chain, so a task can be decomposed and executed across many turns
-- **Prompt assembly with permissions** — permission context, skill summaries, MCP status, memory and the response protocol injected per run; diff review, path checks and command permission checks fence the read/write boundary
-- **Context governance** — layered compaction, folding and summarisation triggered by token pressure, plus session persistence, so long sessions degrade gracefully instead of hitting a wall
-- **MCP integration** — stdio and HTTP servers wrapped behind one dispatch surface, namespaced so two servers cannot collide
-- **Progressive skill loading** — only names and descriptions exposed up front; the full skill document loads when a task actually hits it
-- **Deterministic evaluation** — an LCS-based tool-sequence scorer with a negative-scoring, veto-on-failure scheme replays JSONL session traces. Case generation, capability generation and fault diagnosis are separate agents whose output passes a zod check plus a human gate. No scoring step calls an LLM.
-
-### NoteBook — knowledge base with RAG
-
-*Python · FastAPI · LangChain · ChromaDB · Redis · MySQL · React · TypeScript*
-
-A service fusing a private document library, personal notes and RAG question answering.
-
-- **Multi-stage retrieval** — HyDE query expansion → weighted-RRF hybrid of BM25 and vector search → cross-encoder rerank; documents and notes retrieved together, merged, and re-ranked with sources marked
-- **Ingestion** — PDF / Markdown / DOCX / TXT upload, parsing, chunking, embedding, MD5 dedupe and deletion
-- **Two-tier storage** — MySQL for note CRUD, tags and structure; the vector store for semantic search over the same notes
-- **Retrieval evaluation** — a two-layer harness (retrieval quality / citation traceability) over core, negative and robustness query sets with ground-truth chunks, reporting recall@k, hit@k, MRR and nDCG@k plus Top-K and rerank ablations. It located a Chinese tokenisation defect in the BM25 branch — which is why jieba is in the pipeline.
-- **Serving** — SSE streaming for answers and writing, async jobs, lazy model loading and a routing decision on whether RAG is needed at all; per-user isolation via JWT plus metadata filters
+- 🤖 **Terminal AI Coding Agents** — [MedCode](https://github.com/Smilewithoutfalling/MedCode): a local `model → tool → model` loop with MCP servers mounted at runtime, skills that load only when a task actually hits them, diff review before any write, and path/command permission checks fencing the workspace
+- 📊 **Data Analysis Agents** — [DataChat](https://github.com/Smilewithoutfalling/datachat): question → plan → generated pandas → sandboxed run → read the traceback, fix, rerun. One kernel, two control flows — a fixed state graph when you need to debug it, ReAct when the model should decide
+- 🔍 **Retrieval That Cites** — hybrid BM25 + vector search fused by weighted RRF, HyDE query expansion, cross-encoder rerank; every answer carries the chunk it came from, marked at the source
+- 🧪 **Evaluation Before Opinion** — deterministic scorers replayed over JSONL sessions (tool-sequence alignment, veto on failure, token budget), plus retrieval metrics from recall@k to nDCG@k with Top-K and rerank ablations
+- ⚡ **Runtime Correctness** — streaming, cancellation, timeouts, context compaction and session persistence, because an agent that works for three turns and dies on the thirtieth is not working
 
 <!-- OPEN_SOURCE_CONTRIBUTIONS:START -->
 ## Open Source Contributions
@@ -143,27 +117,3 @@ A service fusing a private document library, personal notes and RAG question ans
 <p align="center">
   <img width="96%" src="./assets/open-source-stats.svg" alt="Open source contribution summary" />
 </p>
-
-## Skills
-
-**AI & Retrieval** — LangChain, LangGraph, prompt engineering, tool calling, MCP. The full RAG path:
-document parsing, chunking, embedding, vector search, HyDE expansion, BM25 hybrid retrieval,
-cross-encoder reranking.
-
-**Agent Engineering** — agent loop design, tool dispatch, context compaction, session persistence,
-permission boundaries, multi-turn task execution.
-
-**Data & Storage** — MySQL, Redis, ChromaDB: structured storage, caching, vector indexing,
-metadata-scoped per-user isolation.
-
-**Frontend & Delivery** — React, TypeScript, Tailwind CSS; Docker, Git, Linux, basic CI/CD.
-
-## Research
-
-Multimodal survival prediction on histopathology — the part where a model has to be
-right for the right reason, not just accurate on a held-out split.
-
-- **Representation** — patch-level feature extraction from whole-slide images, and how much of the prognostic signal survives aggregation
-- **Fusion** — combining slide morphology with expression profiles without letting one modality drown the other
-- **Stability** — cross-cohort and cross-fold variance, because a survival model that only works on one split is a coincidence
-- **Interpretability** — attention maps that point at tissue a pathologist would recognise

@@ -1,0 +1,5 @@
+*.pyc
+*~
+.obsidian/
+__pycache__/
+preview.png

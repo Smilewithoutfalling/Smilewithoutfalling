@@ -1,0 +1,44 @@
+name: Update profile contributions
+
+on:
+  schedule:
+    # 03:17 UTC daily — off the hour so it does not queue behind the crowd
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-profile-readme
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Update contribution tables and stats card
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/update_profile.py
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- README.md assets/open-source-stats.svg; then
+            echo "Nothing changed"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md assets/open-source-stats.svg
+          git commit -m "chore: update open source contributions"
+          git push

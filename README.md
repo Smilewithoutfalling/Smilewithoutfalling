@@ -1,15 +1,15 @@
-<h1 align="center">AI Application Engineering · LLM Agents · Retrieval</h1>
+<h1 align="center">AI Application Engineering · LLM Agents · Evaluation</h1>
 
-<p align="center"><strong>Agent loops, tool calling, and retrieval pipelines — built to be measured, not just demoed</strong></p>
+<p align="center"><strong>Agent loops, tool calling, and evaluation — built to be measured, not just demoed</strong></p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=21&pause=1000&color=58A6FF&center=true&vCenter=true&random=false&width=760&lines=Agent+Loop+%2F+Tool+Calling+%2F+MCP;LangGraph+%2F+StateGraph+%2F+ReAct;RAG+%2F+Hybrid+Retrieval+%2F+Rerank;Evaluation+Harness+%2F+Reproducible+Scores" alt="Agent loop, tool calling, MCP, LangGraph and ReAct, RAG hybrid retrieval, evaluation harness" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=21&pause=1000&color=58A6FF&center=true&vCenter=true&random=false&width=760&lines=Agent+Loop+%2F+Tool+Calling+%2F+MCP;LangGraph+%2F+StateGraph+%2F+ReAct;Sandboxed+Execution+%2F+Timeout+%2F+Retry;Eval+Suite+%2F+Deterministic+Scoring;Desktop+Packaging+%2F+CI+Artifacts" alt="Agent loop, tool calling, MCP, LangGraph and ReAct, sandboxed execution, evaluation suite, desktop packaging" />
 </p>
 
 <p align="center">
-  I build LLM applications that have to hold up — agents that run their own code and recover
-  from their own errors, retrieval that says where an answer came from, and evaluation that
-  turns "looks right" into a number.
+  I build LLM applications that have to hold up — agents that write and run their own code and recover
+  from their own errors, control flow you can still debug when it goes wrong, and evaluation that turns
+  "looks right" into a number.
 </p>
 
 <!-- PROFILE_BADGES:START -->
@@ -23,11 +23,11 @@
 
 ## What I Build
 
-- 🤖 **Terminal AI Coding Agents** — [MedCode](https://github.com/Smilewithoutfalling/MedCode): a local `model → tool → model` loop with MCP servers mounted at runtime, skills that load only when a task actually hits them, diff review before any write, and path/command permission checks fencing the workspace
-- 📊 **Data Analysis Agents** — [DataChat](https://github.com/Smilewithoutfalling/datachat): question → plan → generated pandas → sandboxed run → read the traceback, fix, rerun. One kernel, two control flows — a fixed state graph when you need to debug it, ReAct when the model should decide
-- 🔍 **Retrieval That Cites** — hybrid BM25 + vector search fused by weighted RRF, HyDE query expansion, cross-encoder rerank; every answer carries the chunk it came from, marked at the source
-- 🧪 **Evaluation Before Opinion** — deterministic scorers replayed over JSONL sessions (tool-sequence alignment, veto on failure, token budget), plus retrieval metrics from recall@k to nDCG@k with Top-K and rerank ablations
-- ⚡ **Runtime Correctness** — streaming, cancellation, timeouts, context compaction and session persistence, because an agent that works for three turns and dies on the thirtieth is not working
+- 🤖 **Agents, Built Both Ways** — [DataChat](https://github.com/Smilewithoutfalling/datachat): one kernel, two control flows. A fixed `StateGraph` (planner → codegen → executor → reviewer → summarizer) with a conditional edge back from a failed run, and a ReAct loop where the model picks the tool and decides when it is done. Building both is how you learn which failures belong to the graph and which belong to the model
+- 🧰 **Tool Calling With Damage Control** — the agent's only real power is executing Python, so it runs in a restricted namespace under a timeout, and every run lands in `runs.jsonl` with its code, output and error. Capability is granted one tool at a time, not as a blank cheque
+- 🧪 **Evaluation Before Opinion** — a 50-case suite replayed through a deterministic comparator, an offline fake model so the tests never depend on a provider, and scores that survive a model swap
+- ⚡ **Failure Paths As The Feature** — explicit timeouts, retry with backoff, per-run token accounting and a structured `AnalysisResult`, because an agent that works for three turns and dies on the thirtieth is not working
+- 📦 **Shipped, Not Just Running** — React + TypeScript front end served by the agent itself, a Windows desktop installer built in CI as a downloadable artifact, and artifacts pinned under `outputs/` so nothing drifts with the launch directory
 
 <!-- OPEN_SOURCE_CONTRIBUTIONS:START -->
 ## Open Source Contributions

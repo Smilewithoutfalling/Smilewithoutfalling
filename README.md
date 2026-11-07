@@ -1,14 +1,14 @@
-<h1 align="center">Hey, I'm Smilewithoutfalling 👋</h1>
+<h1 align="center">AI Agent Engineering · Retrieval Systems · Multimodal ML</h1>
 
-<p align="center"><strong>Computational Pathology &amp; Multimodal ML · LLM Application Engineering</strong></p>
+<p align="center"><strong>Agent loops, tool calling, and retrieval pipelines — with the evaluation gates that decide whether they actually work</strong></p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=21&pause=1000&color=58A6FF&center=true&vCenter=true&random=false&width=720&lines=Computational+Pathology+%2F+Multimodal+ML;WSI+%2B+Transcriptomics+%2F+TCGA+Cohorts;Python+%2F+PyTorch+%2F+FastAPI+%2F+React;Agent+Runtime+%26+Evaluation+Gates" alt="Computational pathology, multimodal ML, WSI and transcriptomics, Python and PyTorch, agent runtime" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=21&pause=1000&color=58A6FF&center=true&vCenter=true&random=false&width=760&lines=AI+Coding+Agents+%2F+Agent+Loop+%2F+Tool+Calling;MCP+%2F+Skills+%2F+Context+Engineering;RAG+%2F+Hybrid+Retrieval+%2F+Cross-Encoder+Rerank;WSI+%2B+Transcriptomics+%2F+TCGA+Cohorts" alt="AI coding agents, agent loop and tool calling, MCP and skills, RAG hybrid retrieval, WSI and transcriptomics" />
 </p>
 
 <p align="center">
-  I build multimodal models for cancer survival prediction, and the engineering around them —
-  evaluation gates, streaming runtimes, and reproducible pipelines.
+  I build AI coding agents end to end — the loop, the prompt assembly, the context budget —
+  and retrieval systems where an answer has to be traceable to its source, not just fluent.
 </p>
 
 <!-- PROFILE_BADGES:START -->
@@ -22,10 +22,38 @@
 
 ## What I Build
 
-- 🧬 **Multimodal Survival Analysis** — whole-slide pathology features fused with bulk transcriptomics, aggregated with attention-based MIL across TCGA cohorts
-- 🧪 **Evaluation Gates** — oracle suites, mutation testing, and two-stage gates that must be green before a change is allowed to land
-- ⚡ **Agent Runtimes** — streaming, cancellation, timeouts, and resource cleanup in LLM applications that run long and fail in interesting ways
-- 📊 **Data Interfaces** — NL2SQL, chart contracts, and design systems that make analysis tools answerable rather than decorative
+- 🤖 **AI Coding Agents** — the model → tool → model loop running locally inside a workspace: task decomposition, result write-back, and a termination decision that does not hang
+- 🧩 **Tool & Skill Wiring** — MCP server discovery with namespaced dispatch, and skills that load on demand instead of filling the context window up front
+- 📚 **Retrieval That Cites** — hybrid BM25 + vector search, query expansion, cross-encoder rerank, every answer carrying the source it came from
+- 🧪 **Evaluation Gates** — deterministic scorers replayed over recorded sessions, retrieval metrics from recall@k to nDCG, and gates that must be green before a change lands
+
+## Selected Projects
+
+### MedCode — terminal AI coding agent
+
+*TypeScript · Node.js · Tool Calling · MCP · Prompt Engineering · Context Engineering · JSONL*
+
+A local agent that carries a development task through code search, reasoning, patch generation
+and result write-up without leaving the workspace.
+
+- **Agent loop** — model reasoning, tool dispatch, result write-back and termination as one chain, so a task can be decomposed and executed across many turns
+- **Prompt assembly with permissions** — permission context, skill summaries, MCP status, memory and the response protocol injected per run; diff review, path checks and command permission checks fence the read/write boundary
+- **Context governance** — layered compaction, folding and summarisation triggered by token pressure, plus session persistence, so long sessions degrade gracefully instead of hitting a wall
+- **MCP integration** — stdio and HTTP servers wrapped behind one dispatch surface, namespaced so two servers cannot collide
+- **Progressive skill loading** — only names and descriptions exposed up front; the full skill document loads when a task actually hits it
+- **Deterministic evaluation** — an LCS-based tool-sequence scorer with a negative-scoring, veto-on-failure scheme replays JSONL session traces. Case generation, capability generation and fault diagnosis are separate agents whose output passes a zod check plus a human gate. No scoring step calls an LLM.
+
+### NoteBook — knowledge base with RAG
+
+*Python · FastAPI · LangChain · ChromaDB · Redis · MySQL · React · TypeScript*
+
+A service fusing a private document library, personal notes and RAG question answering.
+
+- **Multi-stage retrieval** — HyDE query expansion → weighted-RRF hybrid of BM25 and vector search → cross-encoder rerank; documents and notes retrieved together, merged, and re-ranked with sources marked
+- **Ingestion** — PDF / Markdown / DOCX / TXT upload, parsing, chunking, embedding, MD5 dedupe and deletion
+- **Two-tier storage** — MySQL for note CRUD, tags and structure; the vector store for semantic search over the same notes
+- **Retrieval evaluation** — a two-layer harness (retrieval quality / citation traceability) over core, negative and robustness query sets with ground-truth chunks, reporting recall@k, hit@k, MRR and nDCG@k plus Top-K and rerank ablations. It located a Chinese tokenisation defect in the BM25 branch — which is why jieba is in the pipeline.
+- **Serving** — SSE streaming for answers and writing, async jobs, lazy model loading and a routing decision on whether RAG is needed at all; per-user isolation via JWT plus metadata filters
 
 <!-- OPEN_SOURCE_CONTRIBUTIONS:START -->
 ## Open Source Contributions
@@ -90,14 +118,24 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch" />
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
   <br />
-  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
-  <img src="https://img.shields.io/badge/OpenSlide-1F6FEB?style=for-the-badge" alt="OpenSlide" />
+  <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain" />
   <img src="https://img.shields.io/badge/LangGraph-1C3C3C?style=for-the-badge" alt="LangGraph" />
-  <img src="https://img.shields.io/badge/ECharts-AA344D?style=for-the-badge&logo=apacheecharts&logoColor=white" alt="Apache ECharts" />
+  <img src="https://img.shields.io/badge/MCP-000000?style=for-the-badge" alt="Model Context Protocol" />
+  <img src="https://img.shields.io/badge/Tool_Calling-4B5563?style=for-the-badge" alt="Tool calling" />
+  <br />
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis" />
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/ChromaDB-FF6B35?style=for-the-badge" alt="ChromaDB" />
+  <br />
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch" />
+  <img src="https://img.shields.io/badge/OpenSlide-1F6FEB?style=for-the-badge" alt="OpenSlide" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
 </p>
 
 ## Contribution Dashboard
@@ -105,6 +143,20 @@
 <p align="center">
   <img width="96%" src="./assets/open-source-stats.svg" alt="Open source contribution summary" />
 </p>
+
+## Skills
+
+**AI & Retrieval** — LangChain, LangGraph, prompt engineering, tool calling, MCP. The full RAG path:
+document parsing, chunking, embedding, vector search, HyDE expansion, BM25 hybrid retrieval,
+cross-encoder reranking.
+
+**Agent Engineering** — agent loop design, tool dispatch, context compaction, session persistence,
+permission boundaries, multi-turn task execution.
+
+**Data & Storage** — MySQL, Redis, ChromaDB: structured storage, caching, vector indexing,
+metadata-scoped per-user isolation.
+
+**Frontend & Delivery** — React, TypeScript, Tailwind CSS; Docker, Git, Linux, basic CI/CD.
 
 ## Research
 
@@ -115,11 +167,3 @@ right for the right reason, not just accurate on a held-out split.
 - **Fusion** — combining slide morphology with expression profiles without letting one modality drown the other
 - **Stability** — cross-cohort and cross-fold variance, because a survival model that only works on one split is a coincidence
 - **Interpretability** — attention maps that point at tissue a pathologist would recognise
-
-## Focus Areas
-
-- Computational pathology and multimodal representation learning
-- Evaluation methodology for probabilistic systems
-- Streaming and cancellation correctness in agent runtimes
-- Timeout, retry, and resource-leak prevention
-- Python, PyTorch, TypeScript, and React

@@ -1,15 +1,15 @@
 <h1 align="center">AI Application Engineering · LLM Agents · Evaluation</h1>
 
-<p align="center"><strong>Agent loops, tool calling, and evaluation — built to be measured, not just demoed</strong></p>
+<p align="center"><strong>Agents that write and run their own code — and a harness that says whether the code was right</strong></p>
 
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=21&pause=1000&color=58A6FF&center=true&vCenter=true&random=false&width=760&lines=Agent+Loop+%2F+Tool+Calling+%2F+MCP;LangGraph+%2F+StateGraph+%2F+ReAct;Sandboxed+Execution+%2F+Timeout+%2F+Retry;Eval+Suite+%2F+Deterministic+Scoring;Desktop+Packaging+%2F+CI+Artifacts" alt="Agent loop, tool calling, MCP, LangGraph and ReAct, sandboxed execution, evaluation suite, desktop packaging" />
 </p>
 
 <p align="center">
-  I build LLM applications that have to hold up — agents that write and run their own code and recover
-  from their own errors, control flow you can still debug when it goes wrong, and evaluation that turns
-  "looks right" into a number.
+  I work on the parts of an LLM application that decide whether it survives real data: the loop that plans,
+  writes code and runs it; the boundary that keeps that code contained; and the harness that turns
+  "it looked right" into a number I can defend. Most of what I ship is a failure path someone forgot to write.
 </p>
 
 <!-- PROFILE_BADGES:START -->
@@ -28,6 +28,45 @@
 - 🧪 **Evaluation Before Opinion** — a 50-case suite replayed through a deterministic comparator, an offline fake model so the tests never depend on a provider, and scores that survive a model swap
 - ⚡ **Failure Paths As The Feature** — explicit timeouts, retry with backoff, per-run token accounting and a structured `AnalysisResult`, because an agent that works for three turns and dies on the thirtieth is not working
 - 📦 **Shipped, Not Just Running** — React + TypeScript front end served by the agent itself, a Windows desktop installer built in CI as a downloadable artifact, and artifacts pinned under `outputs/` so nothing drifts with the launch directory
+
+## Tech Stack
+
+<p align="center"><strong>Agent runtime</strong></p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/LangGraph-1C3C3C?style=for-the-badge" alt="LangGraph" />
+  <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain" />
+  <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI" />
+  <img src="https://img.shields.io/badge/Anthropic-D4A27F?style=for-the-badge" alt="Anthropic" />
+  <img src="https://img.shields.io/badge/MCP-000000?style=for-the-badge" alt="Model Context Protocol" />
+</p>
+
+<p align="center"><strong>Service &amp; state</strong></p>
+<p align="center">
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/SSE_streaming-4B5563?style=for-the-badge" alt="Server-sent events" />
+  <img src="https://img.shields.io/badge/SQLAlchemy-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white" alt="SQLAlchemy" />
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
+</p>
+
+<p align="center"><strong>Interface</strong></p>
+<p align="center">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/ECharts-AA344D?style=for-the-badge&logo=apacheecharts&logoColor=white" alt="Apache ECharts" />
+</p>
+
+<p align="center"><strong>Quality &amp; delivery</strong></p>
+<p align="center">
+  <img src="https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white" alt="pytest" />
+  <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white" alt="Vitest" />
+  <img src="https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white" alt="Playwright" />
+  <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions" />
+  <img src="https://img.shields.io/badge/Tauri-24C8D8?style=for-the-badge&logo=tauri&logoColor=white" alt="Tauri" />
+</p>
+
+<p align="center"><sub>Also worked with: Docker · Redis · MySQL · PyTorch</sub></p>
 
 <!-- OPEN_SOURCE_CONTRIBUTIONS:START -->
 ## Open Source Contributions
@@ -87,30 +126,6 @@
 | [Tencent/teamai-cli](https://github.com/Tencent/teamai-cli) | Delivered the user's files to the root the app actually launches from | [#1745](https://github.com/Tencent/teamai-cli/pull/1745) |
 | [agentscope-ai/agentscope](https://github.com/agentscope-ai/agentscope) | Ignored duplicate index tasks for documents that are already ready | [#3658](https://github.com/agentscope-ai/agentscope/pull/3658) |
 <!-- OPEN_SOURCE_CONTRIBUTIONS:END -->
-
-## Tech Stack
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-  <br />
-  <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain" />
-  <img src="https://img.shields.io/badge/LangGraph-1C3C3C?style=for-the-badge" alt="LangGraph" />
-  <img src="https://img.shields.io/badge/MCP-000000?style=for-the-badge" alt="Model Context Protocol" />
-  <img src="https://img.shields.io/badge/Tool_Calling-4B5563?style=for-the-badge" alt="Tool calling" />
-  <br />
-  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
-  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis" />
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-  <img src="https://img.shields.io/badge/ChromaDB-FF6B35?style=for-the-badge" alt="ChromaDB" />
-  <br />
-  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch" />
-  <img src="https://img.shields.io/badge/OpenSlide-1F6FEB?style=for-the-badge" alt="OpenSlide" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
-</p>
 
 ## Contribution Dashboard
 

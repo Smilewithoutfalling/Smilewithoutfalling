@@ -1,33 +1,22 @@
-# 上线三步
+# 已上线
 
-这个仓库要建成 **`Smilewithoutfalling/Smilewithoutfalling`** —— 仓库名和用户名完全一致，GitHub 才会把它渲染成你的个人主页。
+仓库：<https://github.com/Smilewithoutfalling/Smilewithoutfalling>
+主页：<https://github.com/Smilewithoutfalling>
 
-## 1. 建仓库
+三件事都已经做完，**不需要再手工操作**：
 
-网页建：<https://github.com/new>
+| 项 | 状态 |
+|---|---|
+| 仓库 | Public，仓库名与用户名一致，GitHub 已识别为 profile README |
+| 首次推送 | `e69afff`，7 个文件 |
+| Actions 写权限 | 已设为 Read and write（`PUT /actions/permissions/workflow`） |
+| 首次运行 | 手动触发成功，脚本在 Actions 里打真实 API 重算，输出与本地快照逐字节一致 |
 
-- Repository name：`Smilewithoutfalling`
-- 可见性：**Public**（私有仓库不会渲染主页）
-- **不要**勾 "Add a README file"（这里已经有一份，勾了会冲突）
+首次运行输出 `README already up to date` 说明本地提交的内容和线上实时数据完全对齐 —— 33 个 merged 不是估的。
 
-## 2. 推上去
+**之后它自己跑**：每天 03:17 UTC。想立刻刷新就 Actions → `Update profile contributions` → Run workflow。
 
-```bash
-cd profile-readme
-git init -b main
-git add .
-git commit -m "profile: initial"
-git remote add origin https://github.com/Smilewithoutfalling/Smilewithoutfalling.git
-git push -u origin main
-```
-
-推完直接打开 <https://github.com/Smilewithoutfalling> 就能看到。
-
-## 3. 开 Actions
-
-仓库 → Settings → Actions → General → Workflow permissions → 选 **Read and write permissions** → Save。
-
-然后 Actions → `Update profile contributions` → Run workflow 手动跑一次，确认表格和统计卡能自己刷新。
+**要改内容时的规矩**：改 README 里两个 marker **之外**的部分随便改；marker **之内**的内容下次运行会被脚本覆盖，要改就改 `scripts/update_profile.py`。
 
 ---
 
@@ -103,4 +92,4 @@ GITHUB_TOKEN=ghp_xxx python3 scripts/update_profile.py
 
 - 统计卡最多画 **6 个仓库**，多的折叠成 `+N more repositories` —— 超过 6 个时图表就变成一排标签，读者也读不过来。
 - 主表只留 **最近 10 条** merged，其余收进 `<details>` 折叠。33 条平铺是一份日志，不是一份履历。
-- 徽章上的数字**不自动更新** —— 那四个 badge 指向的是 GitHub 搜索链接，不写死数字，因为写死就一定会过期，而过期的数字比没有数字更糟。
+- 徽章上的**两个计数**（`Merged_PRs` / `External_PRs`）由脚本每天重算并回填，写错了会自己改回来，**不用手动维护**。`Followers` 和 `Profile Views` 走的是 shields.io 和 komarev 的动态接口，本来就不会过期。

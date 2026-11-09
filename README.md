@@ -14,7 +14,7 @@
 
 <!-- PROFILE_BADGES:START -->
 <p align="center">
-  <a href="https://github.com/search?q=is%3Apr+author%3ASmilewithoutfalling+-user%3ASmilewithoutfalling+is%3Amerged&type=pullrequests"><img src="https://img.shields.io/badge/Merged_PRs-33-2ea44f?style=for-the-badge&logo=github&logoColor=white" alt="Merged pull requests" /></a>
+  <a href="https://github.com/search?q=is%3Apr+author%3ASmilewithoutfalling+-user%3ASmilewithoutfalling+is%3Amerged&type=pullrequests"><img src="https://img.shields.io/badge/Merged_PRs-35-2ea44f?style=for-the-badge&logo=github&logoColor=white" alt="Merged pull requests" /></a>
   <a href="https://github.com/search?q=is%3Apr+author%3ASmilewithoutfalling+-user%3ASmilewithoutfalling&type=pullrequests"><img src="https://img.shields.io/badge/External_PRs-35-0366d6?style=for-the-badge&logo=github&logoColor=white" alt="External pull requests" /></a>
   <a href="https://github.com/Smilewithoutfalling?tab=followers"><img src="https://img.shields.io/github/followers/Smilewithoutfalling?label=Followers&style=for-the-badge&logo=github&color=181717" alt="GitHub followers" /></a>
   <a href="https://github.com/Smilewithoutfalling"><img src="https://komarev.com/ghpvc/?username=Smilewithoutfalling&label=Profile%20Views&color=0e75b6&style=for-the-badge" alt="Profile views" /></a>
@@ -71,12 +71,14 @@
 <!-- OPEN_SOURCE_CONTRIBUTIONS:START -->
 ## Open Source Contributions
 
-> Automatically updated daily · 33 merged · 2 in review · 6 repositories
+> Automatically updated daily · 35 merged · 0 in review · 6 repositories
 
 ### Merged Pull Requests
 
 | Project | Contribution | PR |
 |---|---|---|
+| [agentscope-ai/agentscope](https://github.com/agentscope-ai/agentscope) | Ignored duplicate index tasks for documents that are already ready | [#3658](https://github.com/agentscope-ai/agentscope/pull/3658) |
+| [Tencent/teamai-cli](https://github.com/Tencent/teamai-cli) | Delivered the user's files to the root the app actually launches from | [#1745](https://github.com/Tencent/teamai-cli/pull/1745) |
 | [Tencent/teamai-cli](https://github.com/Tencent/teamai-cli) | Made `remove` fail loudly instead of silently succeeding when nothing matched | [#1741](https://github.com/Tencent/teamai-cli/pull/1741) |
 | [Tencent/teamai-cli](https://github.com/Tencent/teamai-cli) | Surfaced a skipped skill in `--update-quality` and matched learnings by topic | [#1739](https://github.com/Tencent/teamai-cli/pull/1739) |
 | [deepset-ai/haystack](https://github.com/deepset-ai/haystack) | Documented the pandas row-index assumption behind XLSX row numbering | [#13566](https://github.com/deepset-ai/haystack/pull/13566) |
@@ -85,14 +87,14 @@
 | [deepset-ai/haystack](https://github.com/deepset-ai/haystack) | Clarified what `word_count_threshold` actually counts | [#13549](https://github.com/deepset-ai/haystack/pull/13549) |
 | [Tencent/teamai-cli](https://github.com/Tencent/teamai-cli) | Made a failed self-update exit non-zero instead of reporting success | [#1703](https://github.com/Tencent/teamai-cli/pull/1703) |
 | [Tencent/teamai-cli](https://github.com/Tencent/teamai-cli) | Persisted self-update failures to `debug.log` so they survive the terminal | [#1702](https://github.com/Tencent/teamai-cli/pull/1702) |
-| [langbot-app/LangBot](https://github.com/langbot-app/LangBot) | Throttled intermediate stream frames in WebSocket mode | [#2564](https://github.com/langbot-app/LangBot/pull/2564) |
-| [Tencent/teamai-cli](https://github.com/Tencent/teamai-cli) | Recognised an origin-less `--dir` checkout by hashing its git root | [#1427](https://github.com/Tencent/teamai-cli/pull/1427) |
 
 <details>
-<summary>23 earlier merged pull requests</summary>
+<summary>25 earlier merged pull requests</summary>
 
 | Project | Contribution | PR |
 |---|---|---|
+| [langbot-app/LangBot](https://github.com/langbot-app/LangBot) | Throttled intermediate stream frames in WebSocket mode | [#2564](https://github.com/langbot-app/LangBot/pull/2564) |
+| [Tencent/teamai-cli](https://github.com/Tencent/teamai-cli) | Recognised an origin-less `--dir` checkout by hashing its git root | [#1427](https://github.com/Tencent/teamai-cli/pull/1427) |
 | [Tencent/teamai-cli](https://github.com/Tencent/teamai-cli) | Timed out a stalled `gh` org request instead of retrying it forever | [#1403](https://github.com/Tencent/teamai-cli/pull/1403) |
 | [Tencent/teamai-cli](https://github.com/Tencent/teamai-cli) | Retried the session-pull temp cleanup that races `git gc` | [#1408](https://github.com/Tencent/teamai-cli/pull/1408) |
 | [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | Retargeted the label docs at `triage.yml` and guarded applied labels | [#7328](https://github.com/bytedance/deer-flow/pull/7328) |
@@ -121,10 +123,7 @@
 
 ### Pull Requests In Review
 
-| Project | Contribution | PR |
-|---|---|---|
-| [Tencent/teamai-cli](https://github.com/Tencent/teamai-cli) | Delivered the user's files to the root the app actually launches from | [#1745](https://github.com/Tencent/teamai-cli/pull/1745) |
-| [agentscope-ai/agentscope](https://github.com/agentscope-ai/agentscope) | Ignored duplicate index tasks for documents that are already ready | [#3658](https://github.com/agentscope-ai/agentscope/pull/3658) |
+_No open external pull requests._
 <!-- OPEN_SOURCE_CONTRIBUTIONS:END -->
 
 ## Contribution Dashboard

@@ -15,7 +15,7 @@
 <!-- PROFILE_BADGES:START -->
 <p align="center">
   <a href="https://github.com/search?q=is%3Apr+author%3ASmilewithoutfalling+-user%3ASmilewithoutfalling+is%3Amerged&type=pullrequests"><img src="https://img.shields.io/badge/Merged_PRs-35-2ea44f?style=for-the-badge&logo=github&logoColor=white" alt="Merged pull requests" /></a>
-  <a href="https://github.com/search?q=is%3Apr+author%3ASmilewithoutfalling+-user%3ASmilewithoutfalling&type=pullrequests"><img src="https://img.shields.io/badge/External_PRs-35-0366d6?style=for-the-badge&logo=github&logoColor=white" alt="External pull requests" /></a>
+  <a href="https://github.com/search?q=is%3Apr+author%3ASmilewithoutfalling+-user%3ASmilewithoutfalling&type=pullrequests"><img src="https://img.shields.io/badge/External_PRs-36-0366d6?style=for-the-badge&logo=github&logoColor=white" alt="External pull requests" /></a>
   <a href="https://github.com/Smilewithoutfalling?tab=followers"><img src="https://img.shields.io/github/followers/Smilewithoutfalling?label=Followers&style=for-the-badge&logo=github&color=181717" alt="GitHub followers" /></a>
   <a href="https://github.com/Smilewithoutfalling"><img src="https://komarev.com/ghpvc/?username=Smilewithoutfalling&label=Profile%20Views&color=0e75b6&style=for-the-badge" alt="Profile views" /></a>
 </p>
@@ -71,7 +71,7 @@
 <!-- OPEN_SOURCE_CONTRIBUTIONS:START -->
 ## Open Source Contributions
 
-> Automatically updated daily · 35 merged · 0 in review · 6 repositories
+> Automatically updated daily · 35 merged · 1 in review · 6 repositories
 
 ### Merged Pull Requests
 
@@ -123,7 +123,9 @@
 
 ### Pull Requests In Review
 
-_No open external pull requests._
+| Project | Contribution | PR |
+|---|---|---|
+| [agentscope-ai/agentscope](https://github.com/agentscope-ai/agentscope) | fix(app): release only the caller's try_lock lease | [#3919](https://github.com/agentscope-ai/agentscope/pull/3919) |
 <!-- OPEN_SOURCE_CONTRIBUTIONS:END -->
 
 ## Contribution Dashboard
